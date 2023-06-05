@@ -1,5 +1,9 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 .App {
     text-align: center;
+    min-height: 100VH;
 }
 
 .App-logo {
@@ -41,4 +45,34 @@
 .bg-header {
     background: rgb(73, 13, 13);
     background: linear-gradient(90deg, rgba(73, 13, 13, 1) 0%, rgba(161, 97, 114, 1) 100%, rgba(245, 216, 104, 1) 100%);
+}
+
+.bg {
+    background-color: white;
+}
+
+.bg-about {
+    background: #F9F6F2;
+}
+
+.bg-team {
+    background: #94807a;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    overflow: hidden;
+    height: 0;
+    transition: 0.5s ease;
+    color: 'white';
+    border-radius: 15px;
+}
+
+.card:hover .overlay {
+    height: 30%;
 }

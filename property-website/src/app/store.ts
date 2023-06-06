@@ -2,7 +2,7 @@ import { configureStore, ThunkAction, Action, createSlice } from '@reduxjs/toolk
 import man1 from '../assets/man1.jpg'
 import man2 from '../assets/man2.jpg'
 import woman from '../assets/woman.jpg'
-
+import { useState } from 'react';
 
 const teamSlice = createSlice({
   name:'team',
@@ -11,6 +11,40 @@ const teamSlice = createSlice({
   },
   reducers:{
 
+  }
+})
+
+const offersSlice = createSlice({
+  name:'offers',
+  initialState:{
+    items:[{saleType:'sprzedaz',type:'mieszkanie',metraz:'43',pietro:'3',cena:'355 000',winda:'tak',garaz:'tak',city:'Łódz', dostepny:'01.07.2023'},{saleType:'wynajem',type:'mieszkanie',metraz:'57m',pietro:'6',cena:'525 000',winda:'tak',garaz:'tak',city:'Warszawa',dostepny:'1.08.2023',polecane:'yes'},{saleType:'sprzedaz',type:'dom',metraz:'152',cena:'675 000',garaz:'tak',city:'Wrocław',dostepny:'1.08.2023',polecane:'yes'},{saleType:'wynajem',type:'mieszkanie',metraz:'63m',pietro:'3',cena:'550 000',winda:'tak',garaz:'tak',city:'Kraków',dostepny:'1.07.2023'},{saleType:'wynajem',type:'mieszkanie',metraz:'98m',pietro:'6',cena:'925 000',winda:'tak',garaz:'tak',city:'Warszawa',dostepny:'1.08.2023',polecane:'yes'},{saleType:'wynajem',type:'mieszkanie',metraz:'48',pietro:'2',cena:'380 000',winda:'tak',garaz:'nie',city:'Gdańsk',dostepny:'1.07.2023',polecane:'yes'}]
+  },
+  reducers:{
+  }
+})
+
+
+const searchSlice = createSlice({
+  name:'search',
+  initialState:{
+    items:[]
+  },  
+  reducers:{
+    addItem(state:any,action:any){
+      const element = action.payload;
+      console.log(element.length)
+      console.log(...element)
+
+      if(element.length>0){
+        state.items = [];
+        for(const value of element){
+          state.items.push(value);
+        }
+      }
+    },
+    removeAllItems(state:any){
+      state.items = [];
+    }
   }
 })
 
@@ -24,10 +58,14 @@ export type AppThunk<ReturnType = void> = ThunkAction<
 >;
 
 export const teamActions = teamSlice.actions 
+export const offersActions = offersSlice.actions
+export const searchActions = searchSlice.actions
 
 
 export const store = configureStore({
   reducer: {
-    team: teamSlice.reducer
+    team: teamSlice.reducer,
+    offers: offersSlice.reducer,
+    search: searchSlice.reducer
   },
 });

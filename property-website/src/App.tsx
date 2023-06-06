@@ -7,6 +7,7 @@ import Header from './components/Header/Header';
 import Slider from './components/Header/Silder';
 import Layout from './components/Layout/Layout';
 import Team from './components/Team/Team';
+import SearchComponent from './components/SearchComponent/SearchComponent';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<Layout />}></Route>
         <Route path='/about' element={<About />}></Route>
         <Route path='/team' element={<Team />}></Route>
+        <Route path='/search' element={<SearchComponent/>}></Route>
       </Routes>
       </BrowserRouter>
       </>

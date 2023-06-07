@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { searchActions, teamActions } from "../../app/store";
 import { useNavigate } from "react-router-dom";
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from "react-intersection-observer";
 
 
 const FilterBar = () => {
@@ -19,10 +21,13 @@ const FilterBar = () => {
     const [searchProducts, setSearchProducts] = useState<any>([]);
     const [offersRedux, setOffersRedux] = useState<any>([]);
 
+  
     useEffect(()=>{
         setOffersRedux(offers);
         console.log(offersRedux);
     },[])
+
+    
     
     console.log(searchProductsRedux);
 
@@ -97,7 +102,8 @@ const FilterBar = () => {
     }
 
     return(
-    <div className="filter-bar" style={{display:'flex', flexDirection:'column',alignItems:'center',width:'90vw', minHeight:'30vh', borderRadius:'15px',background:'white',position:'absolute', left:'5%', top:'100%', paddingBottom:'10px', paddingTop:'10px'}}>
+        
+        <motion.div  className="filter-bar" style={{display:'flex', flexDirection:'column',alignItems:'center',width:'90vw', minHeight:'30vh', borderRadius:'15px',background:'white',position:'absolute', left:'5%', top:'100%', paddingBottom:'10px', paddingTop:'10px'}}>
         <h3 style={{fontFamily:'Montserrat', fontSize:'25px'}}>Wyszukaj dla Siebie dom</h3>
         <div style={{display:'flex', width:'90vw', flexWrap:'wrap', justifyContent:'center',alignItems:'center', gap:'10px',height:'20vh'}}>
         <FormControl sx={{width:'100px'}}>
@@ -161,7 +167,7 @@ const FilterBar = () => {
         <input type="number" value={priceTo} onChange={(e:any)=>setPriceTo(e.target.value)} placeholder="Do(zł)"></input>
         </div>
         <button onClick={searchOffers}>Szukaj</button>
-    </div>)
+    </motion.div>)
 }
 
 export default FilterBar

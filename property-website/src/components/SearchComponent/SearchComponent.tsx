@@ -181,7 +181,7 @@ const SearchComponent = () => {
             {searchItems.map((offer:any)=>{
                 return(
                     <div style={{display:'flex', flexDirection:'column', width:'300px',height:'300px',borderRadius:'15px', background:'white'}}>
-                            <img alt="obrazek" style={{width:'100%', height:'70%'}}></img>
+                            <img src={offer?.images?.imgMain} alt="obrazek" style={{width:'100%', height:'70%'}}></img>
                             <div style={{display:'flex'}}>
                             <LocationOnIcon />
                             <h3 style={{fontFamily:'Montserrat', fontSize:'20px',paddingLeft:'5px'}}>{offer?.city}</h3>

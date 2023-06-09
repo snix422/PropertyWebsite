@@ -8,6 +8,7 @@ import Slider from './components/Header/Silder';
 import Layout from './components/Layout/Layout';
 import Team from './components/Team/Team';
 import SearchComponent from './components/SearchComponent/SearchComponent';
+import OfferPage from './components/OfferPage/OfferPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/about' element={<About />}></Route>
         <Route path='/team' element={<Team />}></Route>
         <Route path='/search' element={<SearchComponent/>}></Route>
+        <Route path='/offerpage/:id' element={<OfferPage/>}></Route>
       </Routes>
       </BrowserRouter>
       </>

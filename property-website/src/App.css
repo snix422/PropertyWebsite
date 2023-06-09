@@ -85,3 +85,7 @@
 .bg-recommends {
     background: #D0F0C0
 }
+
+.bg-page {
+    background: conic-gradient(from 255deg at 95% 51%, rgba(202, 191, 191, 1), rgba(78, 146, 49, 1), rgba(208, 109, 130, 1));
+}

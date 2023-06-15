@@ -6,9 +6,9 @@ const About = () => {
     return(
         <>
         <Header />
-        <div className="bg-about" style={{display:'flex', flexDirection:'column', alignItems:'center', width:'100vw', minHeight:'50vh', gap:'60px', paddingTop:'50px',paddingBottom:'30px'}}>
-            <motion.h2 initial={{x:'-100vw'}} animate={{x:0}} transition={{delay:0.1, type:"spring", stiffness:200}} style={{fontSize:'30px', fontFamily:'Montserrat'}}>O firmie</motion.h2>
-            <motion.h4 initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1}} style={{fontSize:'20px', fontFamily:'Montserrat',width:'80%',lineHeight:'40px'}}>Jesteśmy zespołem osób, tworzącymi agencję nieruchomości w Łodzi, dla których niezwykle ważne jest indywidualne podejście do każdego klienta i odpowiedzialność za podjęte zobowiązania.
+        <div className="bg-about flex flex-col items-center w-screen gap-14 pt-12 pb-8" style={{minHeight:'50vh', }}>
+            <motion.h2 initial={{x:'-100vw'}} animate={{x:0}} transition={{delay:0.1, type:"spring", stiffness:200}} className="text-3x1" style={{fontFamily:'Montserrat', fontSize:'35px'}}>O firmie</motion.h2>
+            <motion.h4 initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1}} className="text-xl w-4/5 leading-10" style={{ fontFamily:'Montserrat'}}>Jesteśmy zespołem osób, tworzącymi agencję nieruchomości w Łodzi, dla których niezwykle ważne jest indywidualne podejście do każdego klienta i odpowiedzialność za podjęte zobowiązania.
 
 Zwracamy uwagę na potrzeby klienta, a nasze działanie dostosowujemy do konkretnej sytuacji. Dzięki temu mamy grono zadowolonych osób, które z nami współpracowały.
 

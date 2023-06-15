@@ -35,39 +35,73 @@ const teamSlice = createSlice({
 const offersSlice = createSlice({
   name:'offers',
   initialState:{
-    items:[{id:1,saleType:'sprzedaz',type:'mieszkanie',metraz:'43',pietro:'3',cena:'355 000',winda:'tak',garaz:'tak',city:'Łódz', dostepny:'01.07.2023', images:{
+    items:[{id:1,saleType:'sprzedaz',type:'mieszkanie',metraz:43,pietro:3,cena:355000,winda:'tak',garaz:'tak',city:'Łódź', dostepny:'01.07.2023', images:{
       imgMain:Lodz1Main,
       img2: Lodz1Kuchnia,
       img3:Lodz1Lazienka
-
-    }},{id:2,saleType:'wynajem',type:'mieszkanie',metraz:'57m',pietro:'6',cena:'525 000',winda:'tak',garaz:'tak',city:'Warszawa',dostepny:'1.08.2023',polecane:'yes',images:{
+    },
+    desc:'Wygodne mieszkanie i parking z numerowanym miejscem przypisanym do mieszkania w rejonie skrzyżowania ulic Narutowicza i Kopcińskiego. Posesja zamykana i bezpieczna. Druga linia zabudowy, więc cisza i spokój. Rewelacyjna lokalizacja dla studentów. Doskonała komunikacja miejska i szybki wyjazd z miasta w każdym kierunku.',
+    contact:{
+      phone:'888 888 888',
+      email:'lodzbiuro@gmail.com'
+    }
+  },{id:2,saleType:'wynajem',type:'mieszkanie',metraz:57,pietro:6,cena:525000,winda:'tak',garaz:'tak',city:'Warszawa',dostepny:'1.08.2023',polecane:'yes',images:{
       imgMain:W2Main,
       img2: W2Kuchnia,
       img3:W2Lazienka
+    },
+    desc:'Do sprzedaży funkcjonalne 2 pokojowe mieszkanie z jadalnią oraz kuchnią o łącznej powierzchni 43 m2. Centralną częścią mieszkania jest kuchnia z jadalnią. W pełni wyposażona kuchnia w nowy sprzęt AGD takie jak; lodówka, zmywarka, płyta indukcyjna. Spora ilość okien w mieszkaniu zapewnia dostęp do naturalnego światła dzięki czemu mieszkanie jest słoneczne. Ekspozycja zachodnia.',
+    contact:{
+      phone:'555 555 555',
+      email:'biurowarszawa@gmail.com'
     }
-  },{id:3,saleType:'sprzedaz',type:'dom',metraz:'152',cena:'675 000',garaz:'tak',city:'Wrocław',dostepny:'1.08.2023',polecane:'yes',images:{
+  },{id:3,saleType:'sprzedaz',type:'dom',metraz:152,cena:675000,garaz:'tak',city:'Wrocław',dostepny:'1.08.2023',polecane:'yes',images:{
     imgMain:Wroclaw1Main,
     img2: WroclawKuchnia,
     img3:WroclawLazienka
-  }},
-  {id:4,saleType:'wynajem',type:'mieszkanie',metraz:'63m',pietro:'3',cena:'550 000',winda:'tak',garaz:'tak',city:'Kraków',dostepny:'1.07.2023',images:{
+  },
+  desc:'Mieszkanie 2pokojowe,nowe,balkon,garaż podziemny.Do wynajęciaNOWE 2pokojowe mieszkanie z balkonem i miejscem postojowym w garażu podziemnym/w cenie/.,na 1-szym piętrze.Budynek posiada windę oraz pomieszczenia na rowery,wózki.Mieszkanie składa się z salonu z kuchnią ,sypialni,łazienki z kabiną prysznicową ,przedpokoju oraz balkonu.Mieszkanie jest umeblowane ,wyposażone w nowe sprzęty:zmywarka,płyta indukcyjna,piekarnik,lodówka,okap z wyciągiem,pralka.W pobliżu komunikacja miejska,Biedronka,Żabka,Rossman,restauracje,cukiernie.Niedaleko Park Brochów,tereny spacerowe,ścieżki rowerowe.',
+  contact:{
+    phone:'777 777 777',
+    email:'wroclawbiuro@gmail.com'
+  }
+},
+  {id:4,saleType:'wynajem',type:'mieszkanie',metraz:63,pietro:3,cena:550000,winda:'tak',garaz:'tak',city:'Kraków',dostepny:'1.07.2023',images:{
     imgMain:Krakow1Main,
     img2: Krakow1Kuchnia,
     img3:Krakow1Lazienka
-  }},
-  {id:5,saleType:'wynajem',type:'mieszkanie',metraz:'98m',pietro:'6',cena:'925 000',winda:'tak',garaz:'tak',city:'Warszawa',dostepny:'1.08.2023',polecane:'yes',images:{
+  },
+  desc:'Dwa osobne pokoje .Mieszkanie odnowione,nowe meble w pokojach i kuchni. Dużo miejsc parkingowych przy budynku.Świadectwo energetyczne do okazania przy umowie najmu. W czynszu naliczenia mediów dla 2 osób. Budynek ocieplony w 2015r.',
+  contact:{
+    phone:'444 444 444',
+    email:'krakowbiuro@gmail.com'
+  }
+},
+  {id:5,saleType:'wynajem',type:'mieszkanie',metraz:98,pietro:6,cena:925000,winda:'tak',garaz:'tak',city:'Warszawa',dostepny:'1.08.2023',polecane:'yes',images:{
     imgMain:W1Main,
     img2: W1Kuchnia,
     img3:W1Lazienka
-  }},
-  {id:6,saleType:'wynajem',type:'mieszkanie',metraz:'48',pietro:'2',cena:'380 000',winda:'tak',garaz:'nie',city:'Gdańsk',dostepny:'1.07.2023',polecane:'yes',images:{
+  },
+  desc:'Metro Centrum Nauki Kopernik, BUW, Bulwary Wiślane. Mieszkanie w kamienicy, duży pokój około 27m.kw, umeblowany, strefa dzienna, sypialna, oraz stolik do pracy. W przestronnym przedpokoju aneks kuchenny z lodówką, zmywarką, pralką, kuchenką mikrofalową oraz kuchenką indukcyjną 2 palnikową. Łazienka z przedwojennymi kafelkami na ścianach i wanną. Dla najemcy dostępna piwnica. Zamknięte podwórko, możliwość parkowania roweru.',
+  contact:{
+    phone:'555 555 555',
+    email:'biurowarszawa@gmail.com'
+  }
+},
+  {id:6,saleType:'wynajem',type:'mieszkanie',metraz:48,pietro:2,cena:380000,winda:'tak',garaz:'nie',city:'Gdańsk',dostepny:'1.07.2023',polecane:'yes',images:{
     imgMain:Gdansk1Main,
     img2: Gdansk1Kuchnia,
     img3:Gdansk1Lazienka
-  }}]
+  },
+  desc:'Odkryj już dziś wyjątkową propozycję niepowtarzalnego domu w zabudowie szeregowej w inwestycji Płocka Park na gdańskim Ujeścisku.Ten piękny DOM składa się z 4 kondygnacji o łącznej powierzchni 231 m2, oferując oryginalnie zaprojektowane i doskonale rozplanowane wnętrza.',
+  contact:{
+    phone:'666 666 666',
+    email:'biurogdansk@gmail.com'
+  }
+}]
   },
   reducers:{
-    getProduct(state:any,action:any){
+    getProduct(state,action){
       const id = action.payload;
       const product = state.items.filter((product:any)=>product.id == id);
       state.items = product;
@@ -83,7 +117,7 @@ const searchSlice = createSlice({
     items:[]
   },  
   reducers:{
-    addItem(state:any,action:any){
+    addItem(state:any,action){
       const element = action.payload;
       console.log(element.length)
       console.log(...element)
@@ -95,7 +129,7 @@ const searchSlice = createSlice({
         }
       }
     },
-    removeAllItems(state:any){
+    removeAllItems(state){
       state.items = [];
     }
   }

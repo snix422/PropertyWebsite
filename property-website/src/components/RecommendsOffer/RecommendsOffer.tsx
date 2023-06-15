@@ -5,6 +5,7 @@ import SellIcon from '@mui/icons-material/Sell';
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 import { Link } from "react-router-dom";
+import { ItemsTypes } from "../../Types/Types";
 
 const RecommendsOffer = () => {
     const offers = useSelector((state:any)=>state.offers.items);
@@ -17,7 +18,7 @@ const RecommendsOffer = () => {
     const animation = useAnimation();
 
     useEffect(()=>{
-        const recommends = offers.filter((offer:any)=>offer.polecane === 'yes');
+        const recommends = offers.filter((offer:ItemsTypes)=>offer.polecane === 'yes');
         setRecommendsProducts(recommends);
         console.log(recommendsProducts);
     },[])
@@ -39,23 +40,23 @@ const RecommendsOffer = () => {
     },[inView])
     
     return(
-        <div ref={ref} className="bg-recommends" style={{width:'100vw', minHeight:'80vh', display:'flex',flexDirection:'column', gap:'50px', justifyContent:'center', alignItems:'center',paddingTop:'20px',paddingBottom:'20px',marginTop:'-5vh'}}>
-            <h2 style={{fontFamily:'Montserrat', fontSize:'35px', marginBottom:'20px'}}>Polecane oferty</h2>
-            <div style={{display:'flex',justifyContent:'center', alignItems:'center', gap:'20px'}}>
-                <motion.div animate={animation} style={{display:'flex',justifyContent:'center', alignItems:'center', gap:'20px'}}>
-                {recommendsProducts.map((offer:any)=>{
+        <div ref={ref} className="bg-recommends w-screen flex flex-col justify-center items-center gap-14 pt-2 pb-2 pr-10 pl-10" style={{minHeight:'60vh'}}>
+            <h2 style={{fontSize:'35px', fontFamily:'Montserrat'}}>Polecane oferty</h2>
+            <div className="flex justify-center items-center gap-5">
+                <motion.div animate={animation} className="flex justify-center items-center gap-5 flex-wrap">
+                {recommendsProducts.map((offer:ItemsTypes)=>{
                     return(
-                        <div style={{display:'flex', flexDirection:'column', width:'300px',height:'300px',borderRadius:'15px', background:'white'}}>
-                            <Link to={"/offerpage/" + offer.id} style={{width:'100%', height:'100%'}}> 
-                            <img src={offer?.images?.imgMain} alt="obrazek" style={{width:'100%', height:'70%'}}></img>
+                        <div className="flex flex-col bg-white rounded-3x1" style={{width:'300px',height:'300px', borderRadius:'5px'}}>
+                            <Link to={"/offerpage/" + offer.id} className="rounded" style={{width:'100%', height:'100%',borderRadius:'5px'}}> 
+                            <img src={offer?.images?.imgMain} alt="obrazek" style={{width:'100%', height:'70%',borderRadius:'5px'}}></img>
                             </Link>
-                            <div style={{display:'flex',marginTop:'-80px'}}>
+                            <div className="flex" style={{marginTop:'-80px'}}>
                             <LocationOnIcon />
-                            <h3 style={{fontFamily:'Montserrat', fontSize:'20px',paddingLeft:'5px'}}>{offer?.city}</h3>
+                            <h3 className="text-xl pl-1" style={{fontFamily:'Montserrat'}}>{offer?.city}</h3>
                             </div>
-                            <div style={{display:'flex'}}>
+                            <div className="flex">
                             <SellIcon />
-                            <h3 style={{fontFamily:'Montserrat', fontSize:'20px',paddingLeft:'5px'}}>{offer?.cena}zł</h3>  
+                            <h3 className="text-xl pl-1" style={{fontFamily:'Montserrat'}}>{offer?.cena}zł</h3>  
                             </div> 
                         </div>
                     )

@@ -8,32 +8,32 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 
 const Footer = () => {
     return(
-    <div style={{display:'flex', flexDirection:'column',background:'black', alignItems:'center', paddingTop:'15px', paddingBottom:'30px'}}>
-    <div style={{display:'flex', height:'25vh',width:'100vw', justifyContent:'center', alignItems:'center', gap:'300px'}}>
-        <div style={{display:'flex', flexDirection:'column'}}>
-            <Link to='/about' style={{color:'white',fontFamily:'Montserrat'}}> Home</Link>
-            <Link to='/about' style={{color:'white',fontFamily:'Montserrat'}}> O nas</Link>
-            <Link to='/about' style={{color:'white',fontFamily:'Montserrat'}}> Team</Link>
-            <Link to='/about' style={{color:'white',fontFamily:'Montserrat'}}> Ulubione</Link>
+    <div className="flex flex-col bg-black items-center" style={{paddingTop:'15px', paddingBottom:'30px'}}>
+    <div className="flex gap-72 2x1:flex-row xl:flex-row lg:flex-row lg:gap-14 md:flex-row md:gap-14 sm:flex-row sm:gap-12 max-sm:flex-col max-sm:gap-10 w-screen justify-center items-center" style={{minHeight:'25vh'}}>
+        <div className="flex flex-col">
+            <Link to='/about' className="text-white" style={{fontFamily:'Montserrat'}}> Home</Link>
+            <Link to='/about' className="text-white" style={{fontFamily:'Montserrat'}}> O nas</Link>
+            <Link to='/about' className="text-white" style={{fontFamily:'Montserrat'}}> Team</Link>
+            <Link to='/about' className="text-white" style={{fontFamily:'Montserrat'}}> Ulubione</Link>
         </div>
-        <div style={{display:'flex', flexDirection:'column',gap:'5px'}}>
-            <h3 style={{color:'white', fontFamily:'Montserrat'}}>Kontakt:</h3>
-            <div style={{display:'flex', gap:'10px'}}>
+        <div className="flex flex-col items-center" style={{gap:'5px'}}>
+            <h3 className="text-white" style={{fontFamily:'Montserrat'}}>Kontakt:</h3>
+            <div className="flex" style={{gap:'10px'}}>
                 <BusinessIcon sx={{color:'white'}}></BusinessIcon>
-                <h3 style={{color:'white', fontFamily:'Montserrat'}}>ul.Sienkiewicza 53 Lodz</h3>
+                <h3 className="text-white" style={{fontFamily:'Montserrat'}}>ul.Sienkiewicza 53 Lodz</h3>
             </div>
-            <div style={{display:'flex', gap:'10px'}}>
+            <div className="flex" style={{gap:'10px'}}>
                 <SmartphoneIcon sx={{color:'white'}}></SmartphoneIcon>
-                <h3 style={{color:'white', fontFamily:'Montserrat'}}>666 666 666</h3>
+                <h3 className="text-white" style={{fontFamily:'Montserrat'}}>666 666 666</h3>
             </div>
-            <div style={{display:'flex', gap:'10px'}}>
+            <div className="flex" style={{gap:'10px'}}>
                 <EmailIcon sx={{color:'white'}}></EmailIcon>
-                <h3 style={{color:'white', fontFamily:'Montserrat'}}>nieruchomości.gmail@.com</h3>
+                <h3 className="text-white" style={{fontFamily:'Montserrat'}}>nieruchomości.gmail@.com</h3>
             </div> 
         </div>
-        <div style={{display:'flex', flexDirection:'column', gap:'10px'}}>
-            <h3 style={{color:'white', fontFamily:'Montserrat'}}>Sledz nas:</h3>
-            <div style={{display:'flex',gap:'5px'}}>
+        <div className="flex flex-col items-center" style={{gap:'10px'}}>
+            <h3 className="text-white" style={{fontFamily:'Montserrat'}}>Sledz nas:</h3>
+            <div className="flex" style={{gap:'5px'}}>
                 <div style={{borderRadius:'50%', border:'1px solid white', padding:'4px'}}><FacebookIcon sx={{color:'white'}}></FacebookIcon></div>
                 <div style={{borderRadius:'50%', border:'1px solid white', padding:'4px'}}><InstagramIcon sx={{color:'white'}}></InstagramIcon></div>
                 <div style={{borderRadius:'50%', border:'1px solid white', padding:'4px'}}><TwitterIcon sx={{color:'white'}}></TwitterIcon></div>
@@ -41,7 +41,7 @@ const Footer = () => {
         </div>
         
     </div>
-    <h3 style={{fontSize:'15px', fontFamily:'Montserrat', color:'white'}}>Copywright 2023</h3>
+    <h3 className="text-white text-base" style={{fontFamily:'Montserrat'}}>Copywright 2023</h3>
     </div>
     
     )

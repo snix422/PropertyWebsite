@@ -13,52 +13,37 @@ import { ItemsTypes } from "../../Types/Types";
 
 const SearchComponent = () => {
 
-    const searchItems = useSelector((state:any)=>state.search.items);
-    const local = localStorage.getItem('search');
- 
-
-    const [age, setAge] = useState('');
     const [type, setType] = useState('');
     const [typeSale, setTypeSale] = useState('');
     const [city,setCity] = useState('');
     const [metraz,setMetraz] = useState('');
-    const [priceFrom, setPriceFrom] = useState(0);
-    const [priceTo, setPriceTo] = useState(0);
     const offers = useSelector((state:any)=>state.offers.items);
     const searchProductsRedux = useSelector((state:any)=>state.search.items);
     const [searchProducts, setSearchProducts] = useState([]);
-    const [offersRedux, setOffersRedux] = useState([]);
     const [value, setValue] = useState<number[]>([1000,5000000]);
 
     useEffect(()=>{
-        setOffersRedux(offers);
+       setSearchProducts(searchProductsRedux);
     },[])
     
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+
     let items:any = [];
 
     const searchOffers = () => {
 
-        console.log(value);
-        
-
         if(type){
-            const arr = offersRedux.filter((offer:ItemsTypes)=>offer.type === type);
+            const arr = offers.filter((offer:ItemsTypes)=>offer.type === type);
             console.log(arr);
             items = arr;
             console.log(items);
-
         }
         if(typeSale){
             if(items.length > 0){
                 const arr = items.filter((offer:ItemsTypes)=>offer.saleType === typeSale);
-                console.log(arr);
                 items = arr;
                 
             }else{
-                const arr = offersRedux.filter((offer:ItemsTypes)=>offer.saleType === typeSale);
-                console.log(arr);
+                const arr = offers.filter((offer:ItemsTypes)=>offer.saleType === typeSale);
                 items = arr;
             }
         }
@@ -73,58 +58,45 @@ const SearchComponent = () => {
         }
         if(metraz){
             if(items.length > 0){
-                if(metraz === '101'){
-                    console.log('test')
+                if(metraz == '101'){
                     const arr = items.filter((offer:ItemsTypes)=> offer.metraz >= Number(metraz));
                     items = arr;
-                  
                 }else{
-                    console.log('test')
                     const arr = items.filter((offer:ItemsTypes)=> offer.metraz < Number(metraz));
                     items = arr;  
                 }       
             }else{
-                if(metraz === '101'){
-                    console.log('test')
+                if(metraz == '101'){
                     const arr = offers.filter((offer:ItemsTypes)=> offer.metraz >= Number(metraz));
                      items = arr;
                 }else{
                     const arr = offers.filter((offer:ItemsTypes)=> offer.metraz < Number(metraz));
-                    console.log(arr);
                     items = arr;
                 }
             }
         }
         if(value){
             if(items.length > 0){
-                console.log(value[0], value[1]);
                 const min:any = String(value[0]);
                 const max:any = String(value[1]);
-                const ble = offers.filter((offer:ItemsTypes) => min < offer.cena );
-                const ble2 = ble.filter((offer:ItemsTypes) => max > offer.cena );
-                console.log(ble);
-                console.log(ble2)
-                items = ble2;
+                const arr1 = items.filter((offer:ItemsTypes) => min < offer.cena );
+                const arr2 = arr1.filter((offer:ItemsTypes) => max > offer.cena );
+                items = arr2;
             }else{
                 const min:any = (value[0]);
                 const max:any = (value[1]);
-                const ble = offers.filter((offer:ItemsTypes) => min < offer.cena );
-                const ble2 = ble.filter((offer:ItemsTypes) => max > offer.cena );
-                console.log(ble);
-                console.log(ble2)
-                items = ble2;
+                const arr1 = offers.filter((offer:ItemsTypes) => min < offer.cena );
+                const arr2 = arr1.filter((offer:ItemsTypes) => max > offer.cena );
+                items = arr2;
             }
         }
 
         setSearchProducts(items);
-        console.log(searchProducts);
         //dispatch(searchActions.addItem(arr));
-        localStorage.setItem('search', JSON.stringify(searchProducts));
         setCity('');
         setType('');
         setTypeSale('');
         setMetraz('');
-    
     }
 
     const handleChange = (event: Event, newValue: number | number[]) => {
@@ -132,12 +104,10 @@ const SearchComponent = () => {
         console.log(value);
       };
     
-
     function valuetext(value: number) {
         return `${value}zł`;
       }
     
-
     return(
         <div className="flex flex-col">
             <Header />
@@ -211,9 +181,9 @@ const SearchComponent = () => {
     {searchProducts.length > 0 ? <div className="flex justify-center" style={{display:'flex', gap:'50px', flexWrap:'wrap'}}>
             {searchProducts.map((offer:ItemsTypes)=>{
                 return(
-                    <motion.div initial={{opacity:0, x:100}} animate={{opacity:1,x:0}} transition={{delay:1, duration:1}} className="flex flex-col rounded-3x1 bg-white" style={{width:'300px',height:'300px'}}>
+                    <motion.div initial={{opacity:0, x:100}} animate={{opacity:1,x:0}} transition={{delay:1, duration:1}} className="flex flex-col rounded bg-white" style={{width:'300px',height:'300px'}}>
                             <Link to={"/offerpage/" + offer.id} style={{width:'100%', height:'100%'}}> 
-                            <img src={offer?.images?.imgMain} alt="obrazek" style={{width:'100%', height:'70%'}}></img>
+                            <img src={offer?.images?.imgMain} alt="obrazek" className="rounded" style={{width:'100%', height:'70%'}}></img>
                             </Link>
                             <div className="flex" style={{marginTop:'-70px'}}>
                             <LocationOnIcon />

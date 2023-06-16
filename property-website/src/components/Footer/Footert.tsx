@@ -5,10 +5,16 @@ import EmailIcon from '@mui/icons-material/Email';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import ScrollToTop from "react-scroll-to-top";
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+import arrowUp from '../../assets/arrow-up-340-svgrepo-com.svg'
+
 
 const Footer = () => {
     return(
     <div className="flex flex-col bg-black items-center" style={{paddingTop:'15px', paddingBottom:'30px'}}>
+    <ScrollToTop smooth={true} top={500} component={<KeyboardDoubleArrowUpIcon />} color="blue" height="20" >
+    </ScrollToTop>
     <div className="flex gap-72 2x1:flex-row xl:flex-row lg:flex-row lg:gap-14 md:flex-row md:gap-14 sm:flex-row sm:gap-12 max-sm:flex-col max-sm:gap-10 w-screen justify-center items-center" style={{minHeight:'25vh'}}>
         <div className="flex flex-col">
             <Link to='/about' className="text-white" style={{fontFamily:'Montserrat'}}> Home</Link>

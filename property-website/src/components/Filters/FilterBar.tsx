@@ -21,6 +21,7 @@ const FilterBar = () => {
     const searchProductsRedux = useSelector((state:any)=>state.search.items);
     const [searchProducts, setSearchProducts] = useState<any>([]);
     const [offersRedux, setOffersRedux] = useState<any>([]);
+    let items:any = [];
 
   
     useEffect(()=>{
@@ -37,7 +38,7 @@ const FilterBar = () => {
         console.log(searchProductsRedux);
     },[])
 
-    const searchOffers = () => {
+    /*const searchOffers = () => {
 
         setSearchProducts([]);
         console.log(type);
@@ -50,7 +51,7 @@ const FilterBar = () => {
         let arr = [];
         
         if(type){
-            arr = offersRedux.filter((offer:ItemsTypes)=>offer.type === type);
+            arr = offers.filter((offer:ItemsTypes)=>offer.type === type);
             console.log(arr);
             setSearchProducts(arr);
             console.log(searchProducts);
@@ -95,6 +96,59 @@ const FilterBar = () => {
         }
         dispatch(searchActions.addItem(arr));
         localStorage.setItem('search', JSON.stringify(searchProducts));
+        navigate('/search');
+    }*/
+
+    const searchOffers = () => {
+
+        if(type){
+            const arr = offers.filter((offer:ItemsTypes)=>offer.type === type);
+            items = arr;
+        }
+        if(typeSale){
+            if(items.length > 0){
+                const arr = items.filter((offer:ItemsTypes)=>offer.saleType === typeSale);
+                items = arr;
+                
+            }else{
+                const arr = offers.filter((offer:ItemsTypes)=>offer.saleType === typeSale);
+                items = arr;
+            }
+        }
+        if(city){
+            if(items.length > 0){
+                const arr = items.filter((offer:ItemsTypes)=> offer.city === city);
+                items = arr;
+            }else{
+                const arr = offers.filter((offer:ItemsTypes)=> offer.city == city);
+                items = arr;
+            }
+        }
+        if(metraz){
+            if(items.length > 0){
+                if(metraz == '101'){
+                    const arr = items.filter((offer:ItemsTypes)=> offer.metraz >= Number(metraz));
+                    items = arr;
+                  
+                }else{
+                    const arr = items.filter((offer:ItemsTypes)=> offer.metraz < Number(metraz));
+                    items = arr;  
+                }       
+            }else{
+                if(metraz == '101'){
+                    const arr = offers.filter((offer:ItemsTypes)=> offer.metraz >= Number(metraz));
+                     items = arr;
+                }else{
+                    const arr = offers.filter((offer:ItemsTypes)=> offer.metraz < Number(metraz));
+                    items = arr;
+                }
+            }
+        }
+        dispatch(searchActions.addItem(items));
+        setCity('');
+        setType('');
+        setTypeSale('');
+        setMetraz('');
         navigate('/search');
     }
 
@@ -156,19 +210,11 @@ const FilterBar = () => {
                 label="Metraz"
                 onChange={(e)=>setMetraz(e.target.value)}
         >
-         <MenuItem value={30}>Do 30m2</MenuItem>
         <MenuItem value={50}>Do 50m2</MenuItem>
-         <MenuItem value={100}>Do 100m2</MenuItem>
-         <MenuItem value={100}>Powyzej 100</MenuItem>
-         </Select>
+        <MenuItem value={100}>Do 100m2</MenuItem>
+        <MenuItem value={101}>Powyżej 100m2</MenuItem>
+        </Select>
         </FormControl>
-        <div>
-        <input type="number" value={priceFrom} onChange={(e:ChangeEvent<HTMLInputElement>)=>{
-            const value = Number(e.target.value);
-            setPriceFrom(value)}} placeholder="Od(zł)"></input>
-        <input type="number" value={priceTo} onChange={(e:ChangeEvent<HTMLInputElement>)=>{
-            const value = Number(e.target.value)
-            setPriceTo(value)}} placeholder="Do(zł)"></input></div>
         </div>
         <button className="bg-red-600 text-white mt-5 " style={{fontFamily:'Montserrat', width:'220px', height:'40px', borderRadius:'25px', fontSize:'20px'}} onClick={searchOffers}>Szukaj</button>
     </motion.div>)

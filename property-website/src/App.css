@@ -103,3 +103,22 @@ video {
     background-size: cover;
     min-height: 70vh;
 }
+
+.link {
+    position: relative;
+}
+
+.link::after {
+    content: "";
+    position: absolute;
+    background-color: #ff3c78;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+}
+
+.link:hover:after {
+    width: 100%;
+}

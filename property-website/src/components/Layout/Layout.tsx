@@ -6,6 +6,9 @@ import Slider from "../Header/Silder"
 import RecommendsOffer from "../RecommendsOffer/RecommendsOffer"
 import { useEffect, useRef } from "react"
 import { delay } from "@reduxjs/toolkit/dist/utils"
+import Headroom from 'react-headroom'
+
+
 
 const Layout = () => {
 
@@ -21,7 +24,6 @@ const Layout = () => {
     
     return(
         <>
-        
         <Header />
         <Slider />
         <FiltersComponent />

@@ -85,7 +85,7 @@ const Slider = () => {
           backgroundRepeat: "no-repeat",
           backfaceVisibility: "hidden"
             }}>
-                <h2 className="absolute top-1/4 2x1:right-40 lg:right-40 md:right-20 sm:right-5 " style={{fontFamily:'Montserrat', fontSize:'40px',color:'white'}}>Poznaj nasza oferte</h2>
+                <h2 className="absolute top-1/4 2x1:right-40 lg:right-40 md:right-20 sm:right-5 " style={{fontFamily:'Montserrat', fontSize:'40px',color:'white'}}>Z Nami tworzysz własną przyszłość</h2>
             </Slide>
              <Slide 
              className='relative'
@@ -96,7 +96,7 @@ const Slider = () => {
                 backgroundRepeat: "no-repeat",
                 backfaceVisibility: "hidden"
             }}>
-                <h2 className="absolute bottom-1/4 2x1:left-40 lg:left-40 md:left-20 sm:left-5 " style={{fontFamily:'Montserrat', fontSize:'40px',color:'white'}}>Poznaj nasza oferte</h2>
+                <h2 className="absolute bottom-1/4 2x1:left-40 lg:left-40 md:left-20 sm:left-5 " style={{fontFamily:'Montserrat', fontSize:'40px',color:'white'}}>Zamień marzenia w rzeczywistość</h2>
             </Slide>
             <Nav color='black'/>
         </HeroSlider>

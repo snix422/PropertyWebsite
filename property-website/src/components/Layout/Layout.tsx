@@ -7,6 +7,7 @@ import RecommendsOffer from "../RecommendsOffer/RecommendsOffer"
 import { useEffect, useRef } from "react"
 import { delay } from "@reduxjs/toolkit/dist/utils"
 import Headroom from 'react-headroom'
+import Review from "../Review/Review"
 
 
 
@@ -28,7 +29,8 @@ const Layout = () => {
         <Slider />
         <FiltersComponent />
         <RecommendsOffer />
-         <Footer />
+        <Review />
+        <Footer />
          </>
     )
 }

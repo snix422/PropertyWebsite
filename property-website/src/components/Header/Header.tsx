@@ -19,8 +19,9 @@ const Header = () => {
         <Link className="link text-xl   max-sm:invisible sm:invisible md:visible lg:visible xl:visible 2x1:visible" to='/' style={{fontFamily:'Montserrat'}}>Home</Link>
         <Link className="link text-2xl  max-sm:invisible sm:invisible md:visible lg:visible xl:visible 2x1:visible" to='/about' style={{fontFamily:'Montserrat'}}>O nas</Link>
         <Link className="link text-2xl  max-sm:invisible sm:invisible md:visible lg:visible xl:visible 2x1:visible" to='/team' style={{fontFamily:'Montserrat'}}>Nasz zespol</Link>
+        <Link className="link text-2xl  max-sm:invisible sm:invisible md:visible lg:visible xl:visible 2x1:visible" to='/contact' style={{fontFamily:'Montserrat'}}>Kontakt</Link>
         </nav>
-        <MenuIcon className='absolute right-12 visible sm:visible md:invisible lg:invisible xl:invisible 2x1:invisible' onClick={()=>{setIsBurgerMenuOpen(true)}} />
+        <MenuIcon className='absolute right-12 max-sm:visible md:invisible lg:invisible xl:invisible 2x1:invisible' onClick={()=>{setIsBurgerMenuOpen(true)}} />
         <Drawer anchor='right' open={isBurgerMenuOpen}>
             <Box className="relative" sx={{width:'300px',height:'100vh'}}>
                 <CloseIcon className='absolute left-3 top-3' onClick={()=>{setIsBurgerMenuOpen(false)}} />
@@ -28,6 +29,7 @@ const Header = () => {
                 <Link className="link" to='/'>Home</Link>
                 <Link className="link" to='/about' >O nas</Link>
                 <Link className="link" to='/team'>Nasz zespol</Link>
+                <Link className="link" to='/contact'>Kontakt</Link>
         </nav>
             </Box>
         </Drawer>

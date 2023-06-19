@@ -9,6 +9,7 @@ import Layout from './components/Layout/Layout';
 import Team from './components/Team/Team';
 import SearchComponent from './components/SearchComponent/SearchComponent';
 import OfferPage from './components/OfferPage/OfferPage';
+import Contact from './components/Contact/Contact';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/team' element={<Team />}></Route>
         <Route path='/search' element={<SearchComponent/>}></Route>
         <Route path='/offerpage/:id' element={<OfferPage/>}></Route>
+        <Route path='/contact' element={<Contact/>}></Route>
       </Routes>
       </BrowserRouter>
       </>

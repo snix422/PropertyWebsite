@@ -135,6 +135,23 @@ const searchSlice = createSlice({
   }
 })
 
+
+const reviewsSlice = createSlice({
+  name:'reviews',
+  initialState:{
+    items:[
+      {person:'Pan',client:'Marek', content:'Polecam są to bardzo doświadczeni profesjonaliści znający się na nieruchomościach'},
+      {person:'Pani',client:'Katarzyna', content:'Bardzo szybki kontakt oraz realizacja, bardzo Polecam'},
+      {person:'Pan',client:'Wojciech',content:'Polecam bardzo, jestem bardzo zadowolony z biura nieruchomości'},
+      {person:'Pani',client:'Kinga', content:'Najbardziej profesjonalne biuro nieruchomości z którym miałam kontakt, polecam'},
+      {person:'Pan',client:'Dawid', content:'Bardzo mili i komunikatywni agenci, bardzo Polecam'}
+    ]
+  },
+  reducers:{
+
+  }
+})
+
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<
@@ -147,12 +164,14 @@ export type AppThunk<ReturnType = void> = ThunkAction<
 export const teamActions = teamSlice.actions 
 export const offersActions = offersSlice.actions
 export const searchActions = searchSlice.actions
+export const reviewsActions = reviewsSlice.actions
 
 
 export const store = configureStore({
   reducer: {
     team: teamSlice.reducer,
     offers: offersSlice.reducer,
-    search: searchSlice.reducer
+    search: searchSlice.reducer,
+    reviews: reviewsSlice.reducer
   },
 });

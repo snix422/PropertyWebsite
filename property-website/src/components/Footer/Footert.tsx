@@ -17,10 +17,10 @@ const Footer = () => {
     </ScrollToTop>
     <div className="flex gap-72 2x1:flex-row xl:flex-row lg:flex-row lg:gap-14 md:flex-row md:gap-14 sm:flex-row sm:gap-12 max-sm:flex-col max-sm:gap-10 w-screen justify-center items-center" style={{minHeight:'25vh'}}>
         <div className="flex flex-col">
-            <Link to='/about' className="text-white" style={{fontFamily:'Montserrat'}}> Home</Link>
+            <Link to='/' className="text-white" style={{fontFamily:'Montserrat'}}> Home</Link>
             <Link to='/about' className="text-white" style={{fontFamily:'Montserrat'}}> O nas</Link>
-            <Link to='/about' className="text-white" style={{fontFamily:'Montserrat'}}> Team</Link>
-            <Link to='/about' className="text-white" style={{fontFamily:'Montserrat'}}> Ulubione</Link>
+            <Link to='/team' className="text-white" style={{fontFamily:'Montserrat'}}> Team</Link>
+            <Link to='/contact' className="text-white" style={{fontFamily:'Montserrat'}}> Kontakt</Link>
         </div>
         <div className="flex flex-col items-center" style={{gap:'5px'}}>
             <h3 className="text-white" style={{fontFamily:'Montserrat'}}>Kontakt:</h3>

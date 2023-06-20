@@ -196,7 +196,7 @@ const SearchComponent = () => {
                         </motion.div>
                 )
                 })}
-                </div> : <h2 className="text-4x1 text-white" style={{fontFamily:'Montserrat'}}>Nie znaleziono wyników</h2>}
+                </div> : <h2 className="text-4xl text-white" style={{fontFamily:'Montserrat'}}>Nie znaleziono wyników</h2>}
             </div>
             <Footer />
         </div>

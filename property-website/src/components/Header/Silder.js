@@ -64,7 +64,7 @@ const Slider = () => {
         >
 
             <Slide 
-            className='relative pl-20'
+            className='relative pl-20 max-md:pl-5'
             background={{
                 backgroundImageSrc:slider1,
                 backgroundAttachment: "fixed",
@@ -76,7 +76,7 @@ const Slider = () => {
                 <h2 className='absolute top-1/4 left-1/4' style={{fontFamily:'Montserrat', fontSize:'40px'}}>Poznaj nasza oferte</h2>
             </Slide>
              <Slide 
-             className='relative'
+             className='relative max-md:pl-5'
              style={{border: '2px solid red'}}
              background={{
                 backgroundImageSrc:slider2,
@@ -85,10 +85,10 @@ const Slider = () => {
           backgroundRepeat: "no-repeat",
           backfaceVisibility: "hidden"
             }}>
-                <h2 className="absolute top-1/4 2x1:right-40 lg:right-40 md:right-20 sm:right-5 " style={{fontFamily:'Montserrat', fontSize:'40px',color:'white'}}>Z Nami tworzysz własną przyszłość</h2>
+                <h2 className="absolute top-1/4 2x1:right-40 lg:right-40 md:right-20 sm:right-5  max-sm:pl-5  " style={{fontFamily:'Montserrat', fontSize:'40px',color:'white'}}>Z Nami tworzysz własną przyszłość</h2>
             </Slide>
              <Slide 
-             className='relative'
+             className='relative max-md:pl-5'
              background={{
                 backgroundImageSrc:slider4,
                 backgroundAttachment: "fixed",
@@ -96,7 +96,7 @@ const Slider = () => {
                 backgroundRepeat: "no-repeat",
                 backfaceVisibility: "hidden"
             }}>
-                <h2 className="absolute bottom-1/4 2x1:left-40 lg:left-40 md:left-20 sm:left-5 " style={{fontFamily:'Montserrat', fontSize:'40px',color:'white'}}>Zamień marzenia w rzeczywistość</h2>
+                <h2 className="absolute bottom-1/4 2x1:left-40 lg:left-40 md:left-20 sm:left-5 max-sm:pl-5 " style={{fontFamily:'Montserrat', fontSize:'40px',color:'white'}}>Zamień marzenia w rzeczywistość</h2>
             </Slide>
             <Nav color='black'/>
         </HeroSlider>

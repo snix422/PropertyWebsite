@@ -6,7 +6,7 @@ const About = () => {
     return(
         <>
         <Header />
-        <div className="bg-about flex flex-col items-center w-screen gap-14 pt-12 pb-8" style={{minHeight:'50vh', }}>
+        <div className="bg-about flex flex-col items-center w-screen gap-14 pt-12 pb-8" style={{minHeight:'60vh', }}>
             <motion.h2 initial={{x:'-100vw'}} animate={{x:0}} transition={{delay:0.1, type:"spring", stiffness:200}} className="text-3x1" style={{fontFamily:'Montserrat', fontSize:'35px'}}>O firmie</motion.h2>
             <motion.h4 initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1}} className="text-xl w-4/5 leading-10" style={{ fontFamily:'Montserrat'}}>Jesteśmy zespołem osób, tworzącymi agencję nieruchomości w Łodzi, dla których niezwykle ważne jest indywidualne podejście do każdego klienta i odpowiedzialność za podjęte zobowiązania.
 

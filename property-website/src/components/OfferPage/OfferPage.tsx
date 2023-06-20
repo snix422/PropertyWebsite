@@ -18,12 +18,11 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { motion } from "framer-motion";
 import { delay } from "@reduxjs/toolkit/dist/utils";
 import { ItemsTypes } from "../../Types/Types";
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 const OfferPage = () => {
     const offers = useSelector((state:any)=>state.offers.items);
-    console.log(offers);
     const {id} = useParams();
-    console.log(id);
     const [product, setProduct] = useState([]);
     const [value, setValue] = useState('1');
     const [index, setIndex] = useState(0);
@@ -65,7 +64,7 @@ const OfferPage = () => {
                         <div className="relative">
                         <motion.img initial={{opacity:0,y:75}} animate={{opacity:1,y:0}} transition={{delay:0.5,duration:1}} src={images[index]} style={{width:'700px', height:'400px', borderRadius:'5px'}}></motion.img>
                         <div>
-                            <div onClick={previousSlider} className="bg-white absolute h-8 w-8 flex justify-center items-center" style={{borderRadius:'50%',left:'2%', top:'50%'}}><ArrowBackIcon /></div>
+                            <div onClick={previousSlider} className="bg-white absolute h-8 w-8 flex justify-center items-center" style={{borderRadius:'50%',left:'2%', top:'50%'}}><ChevronLeftIcon /></div>
                             <div onClick={nextSlider} className="bg-white absolute h-8 w-8 flex justify-center items-center" style={{borderRadius:'50%',right:'2%', top:'50%'}}><ChevronRightIcon /></div>
                         </div>
                         </div>

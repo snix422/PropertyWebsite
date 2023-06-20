@@ -3,15 +3,39 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ReviewSlider from "./ReviewSlider";
+import { useInView } from "react-intersection-observer";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
 
 const Review = () => {
 
+    const {ref,inView}:any= useInView({
+        threshold:0.2
+    });
+    const animation = useAnimation();
+
+    useEffect(()=>{
+        if(inView){
+            animation.start({
+                x:0,
+                opacity:1,
+                transition:{
+                    type:'spring', duration:1.5, bounce:0.3, delay:1
+                }
+            })
+        }
+        if(!inView){
+            animation.start({x:-200,opacity:0})
+        }
+        console.log('UseInView,', inView)
+    },[inView])
+
     return(
         <>
-        <div className="bg-review w-screen flex flex-col items-center pt-2" style={{minHeight:'40vh'}}>
+        <motion.div ref={ref} animate={animation} className="bg-review w-screen flex flex-col items-center pt-2" style={{minHeight:'40vh'}}>
             <h2 className="mt-5" style={{fontFamily:'Montserrat', fontSize:'40px'}}>Opinie klientów</h2>
             <ReviewSlider />
-        </div>
+        </motion.div>
        
         </>
     )

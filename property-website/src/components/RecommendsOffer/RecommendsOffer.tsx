@@ -46,7 +46,7 @@ const RecommendsOffer = () => {
                 <motion.div animate={animation} className="flex justify-center items-center gap-5 flex-wrap">
                 {recommendsProducts.map((offer:ItemsTypes)=>{
                     return(
-                        <div className="flex flex-col bg-white rounded-3x1" style={{width:'300px',height:'300px', borderRadius:'5px'}}>
+                        <motion.div whileHover={{scale:1.1}} className="flex flex-col bg-white rounded-3x1" style={{width:'300px',height:'300px', borderRadius:'5px'}}>
                             <Link to={"/offerpage/" + offer.id} className="rounded" style={{width:'100%', height:'100%',borderRadius:'5px'}}> 
                             <img src={offer?.images?.imgMain} alt="obrazek" style={{width:'100%', height:'70%',borderRadius:'5px'}}></img>
                             </Link>
@@ -58,7 +58,7 @@ const RecommendsOffer = () => {
                             <SellIcon />
                             <h3 className="text-xl pl-1" style={{fontFamily:'Montserrat'}}>{offer?.cena}zł</h3>  
                             </div> 
-                        </div>
+                        </motion.div>
                     )
                 })}
                 </motion.div>

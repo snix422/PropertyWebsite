@@ -109,8 +109,8 @@ const OfferPage = () => {
                         </div>
                         </TabPanel>
                     <TabPanel value="3">
-                        <div className="flex flex-col items-center gap-5">
-                            <h2 className="text-2x1 mb-5" style={{fontFamily:'Montserrat', fontSize:'25px',marginBottom:'20px'}}>Kontakt</h2>
+                        <div className="flex flex-col items-center gap-3">
+                            <h2 className="text-2x1 mb-3" style={{fontFamily:'Montserrat', fontSize:'25px',marginBottom:'20px'}}>Kontakt</h2>
                             <div className="flex">
                                 <SmartphoneIcon />
                                 <h2 className="text-3x1">{product.contact.phone}</h2>

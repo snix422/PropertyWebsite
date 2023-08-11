@@ -5,7 +5,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SellIcon from '@mui/icons-material/Sell';
 import FilterBar from "../Filters/FilterBar";
 import { FormControl, InputLabel, MenuItem, Select, Slider } from "@mui/material";
-import { searchActions } from "../../app/store";
+import { RootState, searchActions } from "../../app/store";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -13,12 +13,12 @@ import { ItemsTypes } from "../../Types/Types";
 
 const SearchComponent = () => {
 
-    const [type, setType] = useState('');
-    const [typeSale, setTypeSale] = useState('');
-    const [city,setCity] = useState('');
-    const [metraz,setMetraz] = useState('');
+    const [type, setType] = useState<string>('');
+    const [typeSale, setTypeSale] = useState<string>('');
+    const [city,setCity] = useState<string>('');
+    const [metraz,setMetraz] = useState<string>('');
     const offers = useSelector((state:any)=>state.offers.items);
-    const searchProductsRedux = useSelector((state:any)=>state.search.items);
+    const searchProductsRedux = useSelector((state:RootState)=>state.search.items);
     const [searchProducts, setSearchProducts] = useState([]);
     const [value, setValue] = useState<number[]>([1000,5000000]);
 
@@ -33,9 +33,7 @@ const SearchComponent = () => {
 
         if(type){
             const arr = offers.filter((offer:ItemsTypes)=>offer.type === type);
-            console.log(arr);
             items = arr;
-            console.log(items);
         }
         if(typeSale){
             if(items.length > 0){
@@ -112,7 +110,7 @@ const SearchComponent = () => {
         <div className="flex flex-col">
             <Header />
             <div className="bg-search flex flex-col w-screen justify-center items-center gap-12" style={{minHeight:'55vh',padding: '50px 0 50px 0px'}}>
-            <motion.div initial={{x:'-100vw'}} animate={{x:0}} transition={{delay:0.5, type:"spring", stiffness: 300}} className="filter-bar flex flex-col items-center w-4/5 rounded bg-white pt-2.5 pb-2.5" style={{minHeight:'30vh'}}>
+            <motion.div initial={{x:'-100vw'}} animate={{x:0}} transition={{delay:0.5, type:"spring", stiffness: 300}} className="filter-bar flex flex-col items-center w-4/5 rounded bg-white pt-2.5 pb-2.5 mr-5 ml-5" style={{minHeight:'30vh'}}>
         <h3 className="text-2x1 mb-5" style={{fontFamily:'Montserrat', fontSize:'25px'}}>Wyszukaj dla Siebie dom</h3>
         <div className="flex justify-center items-center gap-2.5 flex-wrap" style={{minHeight:'20vh'}}>
         <FormControl sx={{width:'100px'}}>
@@ -178,12 +176,12 @@ const SearchComponent = () => {
         </div>
         <button className="bg-red-600 text-white mt-5 " style={{fontFamily:'Montserrat', width:'220px', height:'40px', borderRadius:'25px', fontSize:'20px'}} onClick={searchOffers}>Szukaj</button>
     </motion.div>
-    {searchProducts.length > 0 ? <div className="flex justify-center" style={{display:'flex', gap:'50px', flexWrap:'wrap'}}>
+    {searchProducts.length > 0 ? <motion.div className="flex justify-center ml-20 mr-20" style={{display:'flex', gap:'50px', flexWrap:'wrap'}}>
             {searchProducts.map((offer:ItemsTypes)=>{
                 return(
-                    <motion.div initial={{opacity:0, x:100}} animate={{opacity:1,x:0}} transition={{delay:1, duration:1}} className="flex flex-col rounded bg-white" style={{width:'300px',height:'300px'}}>
+                    <motion.div initial={{opacity:0, x:100}} animate={{opacity:1,x:0}} transition={{duration:1}} whileHover={{scale:1.2}} className="flex flex-col rounded bg-white" style={{width:'300px',height:'300px'}}>
                             <Link to={"/offerpage/" + offer.id} style={{width:'100%', height:'100%'}}> 
-                            <img src={offer?.images?.imgMain} alt="obrazek" className="rounded" style={{width:'100%', height:'70%'}}></img>
+                            <motion.img src={offer?.images?.imgMain} alt="obrazek" className="rounded" style={{width:'100%', height:'70%'}}></motion.img>
                             </Link>
                             <div className="flex" style={{marginTop:'-70px'}}>
                             <LocationOnIcon />
@@ -196,7 +194,7 @@ const SearchComponent = () => {
                         </motion.div>
                 )
                 })}
-                </div> : <h2 className="text-4xl text-white" style={{fontFamily:'Montserrat'}}>Nie znaleziono wyników</h2>}
+                </motion.div> : <h2 className="text-4xl text-white" style={{fontFamily:'Montserrat'}}>Nie znaleziono wyników</h2>}
             </div>
             <Footer />
         </div>

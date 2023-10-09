@@ -17,24 +17,26 @@ const Review = () => {
     useEffect(()=>{
         if(inView){
             animation.start({
-                x:0,
                 opacity:1,
+                y:0,
                 transition:{
                     type:'spring', duration:1.5, bounce:0.3, delay:1
                 }
             })
         }
         if(!inView){
-            animation.start({x:-200,opacity:0})
+            animation.start({opacity:0,y:100})
         }
         console.log('UseInView,', inView)
     },[inView])
 
     return(
         <>
-        <motion.div ref={ref} animate={animation} className="bg-review w-screen flex flex-col items-center pt-2" style={{minHeight:'40vh'}}>
+        <motion.div className="bg-review w-screen flex flex-col items-center pt-2" style={{minHeight:'40vh'}}>
+            <motion.div ref={ref} animate={animation} className="flex flex-col items-center">
             <h2 className="mt-5" style={{fontFamily:'Montserrat', fontSize:'40px'}}>Opinie klientów</h2>
             <ReviewSlider />
+            </motion.div>
         </motion.div>
        
         </>

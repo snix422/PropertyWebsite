@@ -64,7 +64,7 @@ const Slider = () => {
         >
 
             <Slide 
-            className='relative pl-20 max-md:pl-5'
+            className='relative max-md:pl-5'
             background={{
                 backgroundImageSrc:slider1,
                 backgroundAttachment: "fixed",
@@ -73,7 +73,7 @@ const Slider = () => {
                 backfaceVisibility: "hidden",
             
             }}>
-                <h2 className='absolute top-1/4 left-1/4' style={{fontFamily:'Montserrat', fontSize:'40px'}}>Poznaj nasza oferte</h2>
+                <h2 className='absolute top-1/4 2x1:left-1/4 lg:left-1/4 md:right-20 sm:right-5 max-sm:pl-5' style={{fontFamily:'Montserrat', fontSize:'40px'}}>Poznaj nasza oferte</h2>
             </Slide>
              <Slide 
              className='relative max-md:pl-5'

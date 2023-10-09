@@ -17,19 +17,27 @@ const Contact = () => {
 
     const form:any = useRef();
 
+    const validationForm = () => {
+        if(fullName.length === 0){
+            setError('Pole imię i nazwisko musi być uzupełnione');
+            return true
+          }else if(mail.length === 0){
+            setError('Pole e-mail musi być uzupełnione');
+            return false
+          }else if(message.length === 0){
+            setError('Wiadomość nie może być pusta');
+            return false
+          }else{
+            setError('');
+            return true
+          }
+    }
+
     const sendEmail = (e:any) => {
       e.preventDefault();
-
-      if(fullName.length === 0){
-        setError('Pole imię i nazwisko musi być uzupełnione')
-      }else if(mail.length === 0){
-        setError('Pole e-mail musi być uzupełnione');
-      }else if(message.length === 0){
-        setError('Wiadomość nie może być pusta');
-      }else{
-        setError('');
-      }
-  
+      validationForm();
+      const response = validationForm();
+      if(response === false)return
       emailjs.sendForm('service_bysdvel', 'template_z4h8j7g', form.current, '5E4w16biVWeMYXUDt')
         .then((result:any) => {
             e.target.reset();
@@ -38,13 +46,12 @@ const Contact = () => {
             setMessage('')
         }, (error:any) => {
         });
-
     };
 
     return(
         <>
         <Header />
-        <div className="flex max-md:flex-col w-screen max-md:justify-center max-md:gap-40 justify-around items-center bg-contact" style={{minHeight:'60vh'}}>
+        <div className="flex max-md:flex-col w-screen max-md:justify-center max-md:gap-20 justify-center items-center gap-36 bg-contact max-md:pt-10 pb-10" style={{minHeight:'60vh',maxWidth:'100vw'}}>
             <motion.div initial={{x:-100,opacity:0}} animate={{x:0,opacity:1}} transition={{delay:0.5, duration:1}} className="flex flex-col gap-3 max-md:items-center">
                 <h2 className="text-center text-white mb-10" style={{fontFamily:'Montserrat', fontSize:'35px'}}>Kontakt</h2>
                 <div className="flex">
@@ -60,13 +67,13 @@ const Contact = () => {
                     <h3 style={{fontFamily:'Montserrat', color:'white', fontSize:'20px'}}>nieruchomości.gmail@.com</h3>
                 </div>
             </motion.div>
-            <motion.div initial={{x:100,opacity:0}} animate={{x:0,opacity:1}} transition={{delay:0.5, duration:1}} className="flex flex-col gap-1">
-                <h2 className="text-center text-white pb-5 text-4xl" style={{fontFamily:'Montserrat'}}>Skontatuj się z Nami!</h2>
-                <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-3 max-md:items-center" style={{fontFamily:'Montserrat'}}>
-                    <input value={fullName} onChange={(e)=>setFullName(e.target.value)} className="w-full max-md:w-3/4 rounded input form-control" type="text" name="user_name" placeholder="Imię i nazwisko"></input>
-                    <input value={mail} onChange={(e)=>setMail(e.target.value)}className="w-full max-md:w-3/4 rounded input form-control" type="text" name="user_email" placeholder="E-mail"></input>
-                    <textarea value={message} onChange={(e)=>setMessage(e.target.value)} className="w-full max-md:w-3/4 h-28 rounded input form-control" name="message" placeholder="Wiadomość..."></textarea>
-                    <button type="submit" className="w-full max-md:w-3/4 text-white bg-yellow-600 rounded font-bold pt-1 pb-1" style={{fontFamily:'Montserrat'}}>Wyślij</button>
+            <motion.div initial={{x:100,opacity:0}} animate={{x:0,opacity:1}} transition={{delay:0.5, duration:1}} className="flex flex-col items-center gap-1">
+                <h2 className="text-center text-white pb-5 text-4xl" style={{fontFamily:'Montserrat'}}>Skontaktuj się z Nami!</h2>
+                <form ref={form} onSubmit={sendEmail} className="w-full flex flex-col items-center gap-3 max-md:items-center" style={{fontFamily:'Montserrat',}}>
+                    <input value={fullName} onChange={(e)=>setFullName(e.target.value)} className="w-4/5 max-md:w-3/4 rounded input form-control" type="text" name="user_name" placeholder="Imię i nazwisko"></input>
+                    <input value={mail} onChange={(e)=>setMail(e.target.value)}className="w-4/5 max-md:w-3/4 rounded input form-control" type="text" name="user_email" placeholder="E-mail"></input>
+                    <textarea value={message} onChange={(e)=>setMessage(e.target.value)} className="w-4/5 max-md:w-3/4 h-28 rounded input form-control" name="message" placeholder="Wiadomość..."></textarea>
+                    <button type="submit" className="w-4/5 max-md:w-3/4 text-white bg-yellow-600 rounded font-bold pt-1 pb-1" style={{fontFamily:'Montserrat'}}>Wyślij</button>
                     {error ? <Alert severity="error">{error}</Alert> : null}
                 </form>
             </motion.div>

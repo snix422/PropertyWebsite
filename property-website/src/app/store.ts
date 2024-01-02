@@ -21,6 +21,7 @@ import Gdansk1Main from '../assets/Gdansk1Main.webp'
 import Gdansk1Kuchnia from '../assets/Gdansk1Kuchnia.webp'
 import Gdansk1Lazienka from '../assets/Gdansk1Lazienka.webp'
 import { useState } from 'react';
+import { create } from 'domain';
 
 const teamSlice = createSlice({
   name:'team',
@@ -152,6 +153,29 @@ const reviewsSlice = createSlice({
   }
 })
 
+const wishListSlice = createSlice({
+  name: "wishList",
+  initialState:{
+    items:[]
+  },
+  reducers:{
+    addItem(state:any,action){
+      const newItem = state.items.find((p:any) => p.id === action.payload.id);
+      if(newItem)return
+      state.items.push(action.payload)
+    },
+    deleteItem(state:any, action){
+      const newItem = state.items.find((p:any) => p.id === action.payload.id);
+      if(newItem){
+        state.items = state.items.filter((p:any) => p.id !== newItem.id);
+      }
+    },
+    deleteAllItems(state){
+      state.items = [];
+    }
+  }
+})
+
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<
@@ -165,6 +189,7 @@ export const teamActions = teamSlice.actions
 export const offersActions = offersSlice.actions
 export const searchActions = searchSlice.actions
 export const reviewsActions = reviewsSlice.actions
+export const wishListActions = wishListSlice.actions
 
 
 export const store = configureStore({
@@ -172,6 +197,7 @@ export const store = configureStore({
     team: teamSlice.reducer,
     offers: offersSlice.reducer,
     search: searchSlice.reducer,
-    reviews: reviewsSlice.reducer
+    reviews: reviewsSlice.reducer,
+    wishList: wishListSlice.reducer
   },
 });
